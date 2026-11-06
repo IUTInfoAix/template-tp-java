@@ -1,6 +1,6 @@
-# template-tp
+# template-tp-java
 
-[![template-ci](https://github.com/IUTInfoAix/template-tp/actions/workflows/template-ci.yml/badge.svg?branch=main)](https://github.com/IUTInfoAix/template-tp/actions/workflows/template-ci.yml)
+[![template-ci](https://github.com/IUTInfoAix/template-tp-java/actions/workflows/template-ci.yml/badge.svg?branch=main)](https://github.com/IUTInfoAix/template-tp-java/actions/workflows/template-ci.yml)
 [![copier](https://img.shields.io/badge/scaffolding-Copier%209-3a8.svg)](https://copier.readthedocs.io/)
 [![Java](https://img.shields.io/badge/Java-25-orange.svg)](https://www.azul.com/downloads/?package=jdk#zulu)
 [![JUnit](https://img.shields.io/badge/JUnit-Jupiter%206-25A162.svg)](https://junit.org/)
@@ -17,7 +17,7 @@ Méta-template **Copier + Jinja2 + Bats** pour scaffolder les TP Java (avec ou s
 pipx install copier
 
 # Générer un TP
-copier copy --trust gh:IUTInfoAix/template-tp ../tpN
+copier copy --trust gh:IUTInfoAix/template-tp-java ../tpN
 ```
 
 Copier pose 3 questions interactives (`module`, `tp`, `stack`), valide la composition (`requires`/`conflicts`), et génère un TP prêt à pousser sous l'organisation Classroom.
@@ -65,7 +65,7 @@ Pour ajouter une feature ou un pack à un TP existant : éditez `.copier-answers
 ## Architecture
 
 ```
-template-tp/
+template-tp-java/
 ├── .copier-template/        templates Jinja2 (pom.xml.jinja, App.java.jinja, ...)
 ├── copier.yml               questions + _exclude conditionnels + _tasks
 ├── features/<nom>/          feature.yml (metadata) + test/ (answers + bats)

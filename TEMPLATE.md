@@ -41,7 +41,7 @@ java -version       # 25 (Zulu fx si javafx envisagé)
 ### Mode interactif
 
 ```bash
-copier copy --trust gh:IUTInfoAix/template-tp ../tpN
+copier copy --trust gh:IUTInfoAix/template-tp-java ../tpN
 ```
 
 Copier pose 3 questions :
@@ -78,7 +78,7 @@ Copier pose 3 questions :
 ### Mode non interactif (CI / batch)
 
 ```bash
-copier copy --trust --defaults --data-file mes-answers.yml gh:IUTInfoAix/template-tp ../tpN
+copier copy --trust --defaults --data-file mes-answers.yml gh:IUTInfoAix/template-tp-java ../tpN
 ```
 
 Le fichier `mes-answers.yml` reproduit le format des 3 questions (`module:`, `tp:`, `stack:`). Voir les fixtures dans `features/<nom>/test/answers.yml` pour des exemples.
@@ -200,7 +200,7 @@ cd ../tpN
 
 # Reproduire à la main la composition d'origine du TP
 cat > .copier-answers.yml <<EOF
-_src_path: gh:IUTInfoAix/template-tp
+_src_path: gh:IUTInfoAix/template-tp-java
 module:
   code: "R2.03"
   titre: "Qualité de développement"
@@ -231,7 +231,7 @@ copier update --trust --skip-answered
 
 # Vérifier git diff, commit le résultat
 git status -sb
-git add -A && git commit -m "chore: 1ère mise à jour depuis IUTInfoAix/template-tp"
+git add -A && git commit -m "chore: 1ère mise à jour depuis IUTInfoAix/template-tp-java"
 ```
 
 Grâce à `_skip_if_exists`, `src/exerciceN/` et le `README.md` ne sont pas touchés. Seule l'infra est rebrandée.
@@ -273,7 +273,7 @@ Copier crée et maintient `.copier-answers.yml` à la racine du TP généré. Fo
 ```yaml
 # Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
 _commit: 0.0.0.post42.dev0+abc1234
-_src_path: gh:IUTInfoAix/template-tp
+_src_path: gh:IUTInfoAix/template-tp-java
 module:
   classroom_org: IUTInfoAix-R203-2026
   code: R2.03
@@ -314,8 +314,8 @@ tp:
 
 ```bash
 # Cloner le méta-template
-git clone https://github.com/IUTInfoAix/template-tp.git
-cd template-tp
+git clone https://github.com/IUTInfoAix/template-tp-java.git
+cd template-tp-java
 
 # Tester une feature (enabled + disabled)
 rm -rf /tmp/tp-test
@@ -356,7 +356,7 @@ La migration vers le nouveau méta-template est utile uniquement si vous voulez 
 
 ```bash
 cd ../tpN
-copier copy --trust --data-file - gh:IUTInfoAix/template-tp . <<EOF
+copier copy --trust --data-file - gh:IUTInfoAix/template-tp-java . <<EOF
 module: {code: "R2.03", titre: "...", org_github: "IUTInfoAix-R203", ...}
 tp: {numero: N, titre_court: "tpN", titre_complet: "TPN ...", ...}
 stack: {features: [...], packs: [...], ...}
@@ -371,7 +371,7 @@ Oui, **en lecture seule**. Aucune PR/issue ne peut être ouverte. Le contenu res
 
 ### Mon TP utilisait `./create-tp.sh` (de l'ancien template). Comment je le remplace ?
 
-`copier copy --trust gh:IUTInfoAix/template-tp ../tpN` est l'équivalent. La grosse différence : Copier crée un `.copier-answers.yml` que vous pouvez versionner et utiliser pour `copier update` plus tard, alors que `create-tp.sh` ne laissait aucune trace de la composition initiale.
+`copier copy --trust gh:IUTInfoAix/template-tp-java ../tpN` est l'équivalent. La grosse différence : Copier crée un `.copier-answers.yml` que vous pouvez versionner et utiliser pour `copier update` plus tard, alors que `create-tp.sh` ne laissait aucune trace de la composition initiale.
 
 ---
 
